@@ -26,6 +26,32 @@ document.querySelectorAll('[data-event]').forEach((element) => {
   element.addEventListener('click', () => emit(element.dataset.event));
 });
 
+const deviceStage = document.querySelector('.device-stage');
+if (deviceStage && matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches) {
+  const layers = Array.from(deviceStage.querySelectorAll('.wall-card'))
+    .map((layer, index) => [layer, 3 + (index % 5) * 1.2]);
+  let frame;
+  deviceStage.addEventListener('pointermove', (event) => {
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {
+      const box = deviceStage.getBoundingClientRect();
+      const x = (event.clientX - box.left) / box.width - .5;
+      const y = (event.clientY - box.top) / box.height - .5;
+      layers.forEach(([layer, depth]) => {
+        if (!layer) return;
+        layer.style.setProperty('--parallax-x', `${(x * depth).toFixed(2)}px`);
+        layer.style.setProperty('--parallax-y', `${(y * depth * .65).toFixed(2)}px`);
+      });
+    });
+  });
+  deviceStage.addEventListener('pointerleave', () => {
+    layers.forEach(([layer]) => {
+      layer?.style.setProperty('--parallax-x', '0px');
+      layer?.style.setProperty('--parallax-y', '0px');
+    });
+  });
+}
+
 const gallery = document.querySelector('[data-gallery]');
 if (gallery) {
   new IntersectionObserver(([entry], observer) => {
