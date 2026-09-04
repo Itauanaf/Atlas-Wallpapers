@@ -119,9 +119,14 @@
 .gallery{display:block;columns:4;column-gap:12px;grid-auto-rows:unset}
 .gallery .tile{display:inline-block;width:100%;height:auto;aspect-ratio:4/3;margin:0 0 12px;vertical-align:top;break-inside:avoid;grid-column:auto;grid-row:auto}
 .gallery .tile.wide{aspect-ratio:16/9;grid-column:auto}
+.gallery .tile.ultrawide{aspect-ratio:21/9}
 .gallery .tile.tall{aspect-ratio:4/5;grid-row:auto}
+.preview-watermarked::before,.lightbox.show-watermark::after{content:"ATLAS WALLPAPERS  ·  PREVIEW     ATLAS WALLPAPERS  ·  PREVIEW\A ATLAS WALLPAPERS  ·  PREVIEW     ATLAS WALLPAPERS  ·  PREVIEW\A ATLAS WALLPAPERS  ·  PREVIEW     ATLAS WALLPAPERS  ·  PREVIEW";position:absolute;z-index:3;inset:-35%;display:grid;place-items:center;white-space:pre;text-align:center;color:rgba(255,255,255,.2);font-size:clamp(8px,1vw,13px);font-weight:600;line-height:6;letter-spacing:.12em;transform:rotate(-24deg);pointer-events:none;text-shadow:0 1px 2px rgba(0,0,0,.45)}
+.preview-watermarked .tag,.preview-watermarked .tile-meta{z-index:4}
+.lightbox.show-watermark{position:relative}
+.lightbox.show-watermark::after{position:absolute;inset:-12%;font-size:clamp(10px,1.4vw,18px);line-height:8}
 @media(max-width:900px){.gallery{columns:3;column-gap:10px}.gallery .tile{margin-bottom:10px}}
-@media(max-width:600px){.gallery{columns:2;column-gap:8px;margin-top:42px}.gallery .tile,.gallery .tile.wide,.gallery .tile.tall{grid-column:auto;grid-row:auto;margin-bottom:8px}.gallery .tile{aspect-ratio:4/3}.gallery .tile.wide{aspect-ratio:16/10}.gallery .tile.tall{aspect-ratio:3/4}}
+@media(max-width:600px){.gallery{columns:2;column-gap:8px;margin-top:42px}.gallery .tile,.gallery .tile.wide,.gallery .tile.tall{grid-column:auto;grid-row:auto;margin-bottom:8px}.gallery .tile{aspect-ratio:4/3}.gallery .tile.wide{aspect-ratio:16/10}.gallery .tile.ultrawide{aspect-ratio:21/10}.gallery .tile.tall{aspect-ratio:3/4}}
 @media(max-width:600px){
   .devices-section{overflow:visible}
   .device-showcase{display:grid;grid-template-columns:1fr;width:var(--shell);margin:42px auto 0;padding:0;gap:14px;overflow:visible}

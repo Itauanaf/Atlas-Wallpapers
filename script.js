@@ -64,6 +64,7 @@ const lightboxImage = lightbox.querySelector('img');
 document.querySelectorAll('.tile').forEach((tile) => {
   tile.addEventListener('click', () => {
     lightboxImage.src = tile.dataset.full;
+    lightbox.classList.toggle('show-watermark', tile.classList.contains('preview-watermarked'));
     lightbox.showModal();
     emit('click_gallery_image', { artwork: tile.querySelector('.tile-meta')?.childNodes[0]?.textContent.trim() });
   });
@@ -100,17 +101,9 @@ document.querySelectorAll('[data-plan]').forEach((button) => {
   });
 });
 
-const hero = document.querySelector('.hero');
 const pricing = document.querySelector('#oferta');
-const sticky = document.querySelector('[data-sticky]');
-let heroVisible = true;
-let pricingVisible = false;
-const syncSticky = () => sticky.classList.toggle('visible', !heroVisible && !pricingVisible);
-new IntersectionObserver(([entry]) => { heroVisible = entry.isIntersecting; syncSticky(); }, { threshold: 0.08 }).observe(hero);
-new IntersectionObserver(([entry]) => {
-  pricingVisible = entry.isIntersecting;
-  if (entry.isIntersecting) emit('view_pricing');
-  syncSticky();
-}, { threshold: 0.08 }).observe(pricing);
-
-document.querySelector('.sticky-buy a').addEventListener('click', () => emit('select_plan', { placement: 'sticky' }));
+if (pricing) {
+  new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) emit('view_pricing');
+  }, { threshold: 0.08 }).observe(pricing);
+}
