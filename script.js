@@ -91,15 +91,44 @@ document.querySelectorAll('details').forEach((details) => {
   });
 });
 
+const upsellDialog = document.querySelector('.upsell-dialog');
 document.querySelectorAll('[data-plan]').forEach((button) => {
   button.addEventListener('click', (event) => {
-    event.preventDefault();
     const plan = button.dataset.plan;
     emit('select_plan', { plan });
-    emit('begin_checkout', { plan });
-    alert(`Checkout do plano ${plan === 'complete' ? 'Coleção Completa' : 'Coleção Essencial'} pronto para receber a URL de pagamento.`);
+    if (plan === 'essential' && upsellDialog) {
+      event.preventDefault();
+      upsellDialog.showModal();
+      emit('view_upsell', { source_plan: 'essential' });
+      return;
+    }
+    emit('begin_checkout', { plan: 'complete', value: 19.90, currency: 'BRL', offer: 'standard' });
   });
 });
+
+if (upsellDialog) {
+  const dismissUpsell = () => {
+    upsellDialog.close();
+    emit('dismiss_upsell', { source_plan: 'essential' });
+  };
+
+  upsellDialog.querySelector('.upsell-accept').addEventListener('click', () => {
+    emit('accept_upsell', { plan: 'complete', value: 14.90, currency: 'BRL' });
+    emit('begin_checkout', { plan: 'complete', value: 14.90, currency: 'BRL', offer: 'essential_upsell' });
+  });
+  upsellDialog.querySelector('.upsell-decline').addEventListener('click', () => {
+    emit('decline_upsell', { plan: 'essential', value: 9.90 });
+    emit('begin_checkout', { plan: 'essential', value: 9.90, currency: 'BRL', offer: 'standard' });
+  });
+  upsellDialog.querySelector('.upsell-close').addEventListener('click', dismissUpsell);
+  upsellDialog.addEventListener('click', (event) => {
+    if (event.target === upsellDialog) dismissUpsell();
+  });
+  upsellDialog.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    dismissUpsell();
+  });
+}
 
 const pricing = document.querySelector('#oferta');
 if (pricing) {
