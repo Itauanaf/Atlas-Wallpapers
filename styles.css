@@ -51,6 +51,7 @@
   .hero-float-d{right:-15px;bottom:4%;transform:rotate(-7deg)}
 }
 .upsell-decline{text-align:center}
+.gallery .tile{cursor:default}
 @media(max-width:900px){.benefits-summary{grid-template-columns:repeat(2,1fr);gap:34px}.benefits-heading h2{margin-bottom:48px}.benefits-hero{height:390px}}
 @media(max-width:600px){.benefits-heading h2{font-size:48px;margin-bottom:38px}.benefits-hero{height:250px;border-radius:10px}.benefits-summary{grid-template-columns:1fr;gap:0;margin-top:36px}.benefits-summary article{padding:22px 0}.benefits-summary article+article{border-top:1px solid var(--line)}}
 
