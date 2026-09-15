@@ -3502,3 +3502,28 @@ em {
     aspect-ratio: 3/4;
   }
 }
+
+.hero-price-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid rgba(233, 224, 250, 0.11);
+  border-radius: 999px;
+  background: rgba(233, 225, 247, 0.1);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.18),
+    inset 0 0 20px rgba(124, 58, 237, 0.05);
+}
+
+.hero-price-badge strong {
+  color: #fff;
+  font-weight: 800;
+}
