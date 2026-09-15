@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!firstGroup) return;
 
   let scrollPos = 0;
-  const speed = 0.5; // Velocidade do carrossel (aumente para acelerar, diminua para desacelerar)
+  const speed = 0.8; // Velocidade do carrossel (aumente para acelerar, diminua para desacelerar)
   let isPaused = false;
 
   // Pausa ao interagir (passar o mouse ou tocar na tela do celular)
