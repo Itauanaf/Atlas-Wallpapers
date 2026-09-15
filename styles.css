@@ -1973,7 +1973,7 @@ em {
 }
 
 /* ==========================================================================
-   CARROSSEL ANIMATION - CORREÇÃO DEFINITIVA (DESKTOP)
+   CARROSSEL ANIMATION - CONTROLADO POR JS (LOOP INFINITO PERFEITO)
    ========================================================================== */
 .marquee-stage {
   width: 100%;
@@ -2022,7 +2022,6 @@ em {
   gap: 18px;
   width: max-content;
   padding-top: 44px;
-  animation: marqueeFlow 45s linear infinite;
   will-change: transform;
   -webkit-overflow-scrolling: touch;
 }
@@ -2140,16 +2139,6 @@ em {
 
 .wall-card:nth-child(even) .mobile-frame {
   animation-delay: -2.7s
-}
-
-@keyframes marqueeFlow {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(calc(-100% - 18px));
-  }
 }
 
 @keyframes phoneHover {
@@ -2382,8 +2371,7 @@ em {
   }
 
   .marquee-track {
-    padding-top: 44px;
-    animation-duration: 45s
+    padding-top: 44px
   }
 
   .wall-card {
@@ -2842,7 +2830,7 @@ em {
     border-top: 1px solid var(--line)
   }
 
-  /* CARROSSEL - CORREÇÃO DE BUG PARA MOBILE */
+  /* CARROSSEL - MOBILE */
   .marquee-stage {
     height: 270px;
     margin-top: 15px;
@@ -2855,7 +2843,6 @@ em {
     width: max-content;
     padding-top: 36px;
     gap: 24px;
-    animation: marqueeFlowMobile 45s linear infinite;
     will-change: transform;
     -webkit-overflow-scrolling: touch;
   }
@@ -2910,16 +2897,6 @@ em {
   }
 }
 
-@keyframes marqueeFlowMobile {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(calc(-100% - 24px));
-  }
-}
-
 @media(prefers-reduced-motion:reduce) {
   * {
     scroll-behavior: auto !important;
@@ -2948,7 +2925,6 @@ em {
   }
 
   .marquee-track {
-    animation: none;
     transform: translateX(-8%)
   }
 
