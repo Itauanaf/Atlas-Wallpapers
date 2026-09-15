@@ -125,9 +125,9 @@ if (pricing) {
 }
 
 // ==========================================
-// CONTROLE DO CARROSSEL INFINITO (MARQUEE)
+// CONTROLE DO CARROSSEL INFINITO (BLINDADO PARA MOBILE)
 // ==========================================
-document.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   const track = document.getElementById("wallpaper-marquee");
   if (!track) return;
 
@@ -135,10 +135,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!firstGroup) return;
 
   let scrollPos = 0;
-  const speed = 0.8; // Velocidade do carrossel (aumente para acelerar, diminua para desacelerar)
+  const speed = 0.8; // Altere a velocidade aqui se quiser
   let isPaused = false;
 
-  // Pausa ao interagir (passar o mouse ou tocar na tela do celular)
+  // Pausa ao tocar ou passar o mouse
   const stage = track.closest('.marquee-stage');
   if (stage) {
     stage.addEventListener("mouseenter", () => { isPaused = true; });
@@ -151,16 +151,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!isPaused) {
       scrollPos += speed;
       
-      // Pega a largura exata do primeiro grupo de cards + o espaçamento (gap de 18px ou 24px)
+      // Pega a largura exata somando o gap dependendo da tela
       const gap = window.innerWidth <= 600 ? 24 : 18;
       const groupWidth = firstGroup.offsetWidth + gap;
 
-      // Quando o primeiro grupo passa inteirinho, ele reseta para 0 sem nenhum salto visual
-      if (scrollPos >= groupWidth) {
-        scrollPos = 0;
+      // Segurança contra largura zero antes do layout renderizar
+      if (groupWidth > 0) {
+        if (scrollPos >= groupWidth) {
+          scrollPos = 0;
+        }
+        track.style.transform = `translateX(-${scrollPos}px)`;
       }
-
-      track.style.transform = `translateX(-${scrollPos}px)`;
     }
     requestAnimationFrame(step);
   }
