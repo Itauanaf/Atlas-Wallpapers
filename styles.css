@@ -1973,206 +1973,84 @@ em {
 }
 
 /* ==========================================================================
-   CARROSSEL ANIMATION - CONTROLADO POR JS (LOOP INFINITO PERFEITO)
+   CARROSSEL ANIMATION - PURO CSS (100% ESTÁVEL NO CELULAR)
    ========================================================================== */
-.marquee-stage {
-  width: 100%;
-  max-width: none;
-  height: clamp(285px, 27vw, 390px);
-  margin-top: 28px;
-  overflow: hidden;
-  perspective: none;
-  mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
-  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
-}
-
-.marquee-stage::before {
-  left: 20%;
-  right: 20%;
-  bottom: 2%;
-  height: 75%
-}
-
-.marquee-stage::after {
-  left: 18%;
-  right: 18%;
-  bottom: 1%;
-  height: 18%
-}
-
-.stage-light {
-  position: absolute;
-  z-index: 3;
-  pointer-events: none;
-  top: -20%;
-  bottom: -10%;
-  width: 26%;
-  left: -30%;
-  background: linear-gradient(100deg, transparent, rgba(214, 168, 95, .055), rgba(160, 205, 240, .08), transparent);
-  filter: blur(22px);
-  transform: skewX(-12deg);
-  animation: stageLightPass 10s 2s ease-in-out infinite;
-}
-
-.marquee-track {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  width: max-content;
-  padding-top: 44px;
-  will-change: transform;
-  -webkit-overflow-scrolling: touch;
-}
-
-.marquee-stage:hover .marquee-track {
-  animation-play-state: paused
-}
-
-.marquee-group {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  flex-shrink: 0;
-}
-
-.wall-card {
-  position: relative;
-  flex: 0 0 clamp(310px, 29vw, 440px);
-  padding: 0 3.1% 24px 0;
-  transform: translateY(var(--lift, 0)) rotate(var(--tilt, 0));
-  translate: var(--parallax-x, 0) var(--parallax-y, 0);
-  transition: transform .6s cubic-bezier(.2, .75, .25, 1), translate .6s cubic-bezier(.2, .75, .25, 1), filter .6s;
-  filter: drop-shadow(0 26px 24px rgba(0, 0, 0, .62));
-}
-
-.wall-card:hover {
-  transform: translateY(calc(var(--lift, 0px) - 7px)) rotate(0deg);
-  filter: drop-shadow(0 32px 28px rgba(0, 0, 0, .72));
-}
-
-.wide-frame {
-  position: relative;
-  aspect-ratio: 16/9;
-  padding: 5px;
-  background: linear-gradient(145deg, #373a3f, #090a0c 42%, #292c31);
-  border: 1px solid rgba(255, 255, 255, .18);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .8);
-}
-
-.wide-frame::before,
-.mobile-frame::before {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(118deg, rgba(255, 255, 255, .13), transparent 18%, transparent 70%, rgba(255, 255, 255, .05));
-  mix-blend-mode: screen
-}
-
-.wide-frame::after {
-  content: "";
-  position: absolute;
-  z-index: 3;
-  top: 7px;
-  left: 50%;
-  width: 34px;
-  height: 3px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, .72);
-  transform: translateX(-50%)
-}
-
-.wide-frame img,
-.mobile-frame img {
-  height: 100%;
-  object-fit: cover;
-  border-radius: 5px;
-  transition: filter .5s, transform .8s cubic-bezier(.2, .75, .25, 1)
-}
-
-.wall-card:hover img {
-  filter: brightness(1.06) saturate(1.04);
-  transform: scale(1.018)
-}
-
-.frame-base {
-  width: 17%;
-  height: 7px;
-  margin: 0 auto;
-  border-radius: 0 0 8px 8px;
-  background: linear-gradient(90deg, #202226, #555960, #202226);
-  box-shadow: 0 3px 9px rgba(0, 0, 0, .45)
-}
-
-.mobile-frame {
-  position: absolute;
-  z-index: 4;
-  right: 0;
-  bottom: 0;
-  width: 23%;
-  aspect-ratio: 9/18;
-  border: 5px solid #202329;
-  border-radius: 18px;
-  background: #111;
-  overflow: hidden;
-  box-shadow: 0 18px 25px rgba(0, 0, 0, .58), inset 0 0 0 1px rgba(255, 255, 255, .12);
-  animation: phoneHover 6s ease-in-out infinite alternate;
-}
-
-.mobile-frame::after {
-  content: "";
-  position: absolute;
-  z-index: 4;
-  top: 4px;
-  left: 50%;
-  width: 32%;
-  height: 5px;
-  transform: translateX(-50%);
-  border-radius: 999px;
-  background: #090a0c
-}
-
-.wall-card:nth-child(even) .mobile-frame {
-  animation-delay: -2.7s
-}
-
-@keyframes phoneHover {
-  from {
-    translate: 0 -1px
+   .marquee-stage{
+    width:100%; max-width:none; height:clamp(285px,27vw,390px); margin-top:28px; overflow:hidden; position:relative;
+    mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
   }
-
-  to {
-    translate: 0 4px
+  .marquee-stage::before{left:20%;right:20%;bottom:2%;height:75%}
+  .marquee-stage::after{left:18%;right:18%;bottom:1%;height:18%}
+  
+  .stage-light{
+    position:absolute;z-index:3;pointer-events:none;top:-20%;bottom:-10%;width:26%;left:-30%;
+    background:linear-gradient(100deg,transparent,rgba(214,168,95,.055),rgba(160,205,240,.08),transparent);
+    filter:blur(22px);transform:skewX(-12deg);animation:stageLightPass 10s 2s ease-in-out infinite;
   }
-}
-
-@keyframes stageLightPass {
-
-  0%,
-  18% {
-    left: -30%;
-    opacity: 0
+  
+  /* A trilha contém exatamente os dois grupos lado a lado */
+  .marquee-track{
+    display: flex;
+    width: max-content;
+    gap: 18px;
+    padding-top: 44px;
+    animation: marqueeFlow 35s linear infinite;
+    will-change: transform;
   }
-
-  35% {
-    opacity: 1
+  
+  .marquee-stage:hover .marquee-track{
+    animation-play-state: paused;
   }
-
-  64% {
-    opacity: .8
+  
+  .marquee-group{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-shrink: 0;
   }
-
-  82%,
-  100% {
-    left: 106%;
-    opacity: 0
+  
+  .wall-card{
+    position:relative; flex:0 0 clamp(310px,29vw,440px); padding:0 3.1% 24px 0;
+    transform:translateY(var(--lift,0)) rotate(var(--tilt,0));
+    translate:var(--parallax-x,0) var(--parallax-y,0);
+    transition:transform .6s cubic-bezier(.2,.75,.25,1),translate .6s cubic-bezier(.2,.75,.25,1),filter .6s;
+    filter:drop-shadow(0 26px 24px rgba(0,0,0,.62));
   }
-}
+  .wall-card:hover{
+    transform:translateY(calc(var(--lift,0px) - 7px)) rotate(0deg);
+    filter:drop-shadow(0 32px 28px rgba(0,0,0,.72));
+  }
+  
+  .wide-frame{
+    position:relative; aspect-ratio:16/9; padding:5px;
+    background:linear-gradient(145deg,#373a3f,#090a0c 42%,#292c31);
+    border:1px solid rgba(255,255,255,.18); border-radius:10px; overflow:hidden;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.8);
+  }
+  .wide-frame::before,.mobile-frame::before{content:"";position:absolute;z-index:2;inset:0;pointer-events:none;background:linear-gradient(118deg,rgba(255,255,255,.13),transparent 18%,transparent 70%,rgba(255,255,255,.05));mix-blend-mode:screen}
+  .wide-frame::after{content:"";position:absolute;z-index:3;top:7px;left:50%;width:34px;height:3px;border-radius:999px;background:rgba(0,0,0,.72);transform:translateX(-50%)}
+  .wide-frame img,.mobile-frame img{height:100%;object-fit:cover;border-radius:5px;transition:filter .5s,transform .8s cubic-bezier(.2,.75,.25,1)}
+  .wall-card:hover img{filter:brightness(1.06) saturate(1.04);transform:scale(1.018)}
+  .frame-base{width:17%;height:7px;margin:0 auto;border-radius:0 0 8px 8px;background:linear-gradient(90deg,#202226,#555960,#202226);box-shadow:0 3px 9px rgba(0,0,0,.45)}
+  
+  .mobile-frame{
+    position:absolute;z-index:4;right:0;bottom:0;width:23%;aspect-ratio:9/18;
+    border:5px solid #202329;border-radius:18px;background:#111;overflow:hidden;
+    box-shadow:0 18px 25px rgba(0,0,0,.58),inset 0 0 0 1px rgba(255,255,255,.12);
+    animation:phoneHover 6s ease-in-out infinite alternate;
+  }
+  .mobile-frame::after{content:"";position:absolute;z-index:4;top:4px;left:50%;width:32%;height:5px;transform:translateX(-50%);border-radius:999px;background:#090a0c}
+  .wall-card:nth-child(even) .mobile-frame{animation-delay:-2.7s}
+  
+  /* Animação limpa e padrão da web: desloca exatamente -50% do total da trilha */
+  @keyframes marqueeFlow {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  @keyframes phoneHover{from{translate:0 -1px}to{translate:0 4px}}
+  @keyframes stageLightPass{0%,18%{left:-30%;opacity:0}35%{opacity:1}64%{opacity:.8}82%,100%{left:106%;opacity:0}}
 
 
 /* ==========================================================================
