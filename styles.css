@@ -2855,7 +2855,7 @@ em {
     width: max-content;
     padding-top: 36px;
     gap: 24px;
-    animation: marqueeFlowMobile 55s linear infinite;
+    animation: marqueeFlowMobile 45s linear infinite;
     will-change: transform;
     -webkit-overflow-scrolling: touch;
   }
