@@ -135,7 +135,7 @@ window.addEventListener("load", () => {
   if (!firstGroup) return;
 
   let scrollPos = 0;
-  const speed = 1.2; // Altere a velocidade aqui se quiser
+  const speed = 0.9; // Altere a velocidade aqui se quiser
   let isPaused = false;
 
   // Pausa ao tocar ou passar o mouse
