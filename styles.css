@@ -2924,10 +2924,6 @@ em {
     translate: 0 0 !important
   }
 
-  .marquee-track {
-    transform: translateX(-8%)
-  }
-
   .stage-light,
   .mobile-frame {
     animation: none
