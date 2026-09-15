@@ -141,3 +141,33 @@
   .device-showcase span{margin-top:18px}
   .placeholder-setup{height:auto;aspect-ratio:3/4}
 }
+
+
+/* --- BADGE DE PREÇO HERO --- */
+.hero-price-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #e2e2e2;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.hero-price-badge strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Ajuste fino para não colar muito no mobile */
+@media (max-width: 768px) {
+  .hero-price-badge {
+    margin-bottom: 20px;
+  }
+}
