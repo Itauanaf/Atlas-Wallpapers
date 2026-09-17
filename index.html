@@ -7,6 +7,11 @@
   <meta name="description" content="Uma coleção autoral com mais de 100 wallpapers premium em 4K para desktop, mobile e ultrawide." />
   <meta name="theme-color" content="#08090b" />
   <link rel="canonical" href="https://atlas-wallpapers.example/" />
+  
+  <!-- OTIMIZAÇÃO DE VELOCIDADE CHECKOUT CAKTO -->
+  <link rel="preconnect" href="https://pay.cakto.com.br" />
+  <link rel="dns-prefetch" href="https://pay.cakto.com.br" />
+
   <meta property="og:title" content="ATLAS — Wallpapers que transformam suas telas" />
   <meta property="og:description" content="Arte selecionada para desktop, mobile e ultrawide. Pagamento único e acesso permanente." />
   <meta property="og:type" content="website" />
@@ -41,7 +46,7 @@
       <div class="hero-copy shell">
         <p class="eyebrow"><span></span> Curadoria digital para todas as telas</p>
         
-        <!-- NOVA BADGE DE PREÇO AQUI -->
+        <!-- NOVA BADGE DE PREÇO -->
         <div class="hero-price-badge">
           COLEÇÃO 4K • A PARTIR DE <strong>R$ 9,90</strong>
         </div>
@@ -293,8 +298,21 @@
       <div class="shell pricing-inner reveal">
         <p class="kicker">07 / Escolha seu acervo</p><h2>Leve sua próxima<br><em>atmosfera com você.</em></h2>
         <div class="pricing-grid">
-          <article class="price-card essential"><header><span>Coleção Essencial</span><p>Para transformar notebook e celular.</p></header><div class="price"><small>R$</small><strong>9</strong><sup>,90</sup></div><p class="once">Pagamento único</p><ul><li>Mais de 100 wallpapers em 4K + versões para celular</li><li>Compatível com Mac, Windows, iPhone e Android</li><li>Download imediato e acesso vitalício</li><li>Garantia de 7 dias</li></ul><a class="button button-outline" href="#checkout" data-plan="essential">Quero só a Essencial</a></article>
-          <article class="price-card complete"><span class="popular">Mais vendido</span><header><span>Coleção Completa</span><p>O acervo completo, em todos os formatos.</p></header><div class="price"><small>R$</small><strong>19</strong><sup>,90</sup></div><p class="once">Pagamento único · menos de R$ 0,10 por wallpaper</p><ul><li>Mais de 200 wallpapers em 4K, com versões originais e mais formatos</li><li>Compatível com Mac, Windows, iPhone e Android</li><li>Versões ultrawide 21:9, iPad e tela de bloqueio</li><li>Guia bônus: wallpaper novo todos os dias, no automático</li><li>Atualizações futuras com acesso antecipado</li><li>Garantia estendida de 30 dias</li></ul><a class="button button-primary" href="https://pay.cakto.com.br/ogycbpr_1087102" data-plan="complete">Quero a coleção completa</a></article>
+          <!-- BOTÃO ESSENCIAL COM LINK DIRETO DA CAKTO (SEM UPSELL) -->
+          <article class="price-card essential">
+            <header><span>Coleção Essencial</span><p>Para transformar notebook e celular.</p></header>
+            <div class="price"><small>R$</small><strong>9</strong><sup>,90</sup></div>
+            <p class="once">Pagamento único</p>
+            <ul>
+              <li>Mais de 100 wallpapers em 4K + versões para celular</li>
+              <li>Compatível com Mac, Windows, iPhone e Android</li>
+              <li>Download imediato e acesso vitalício</li>
+              <li>Garantia de 7 dias</li>
+            </ul>
+            <a class="button button-outline" href="https://pay.cakto.com.br/pfrouu2" target="_blank" rel="noopener noreferrer" data-plan="essential">Quero só a Essencial</a>
+          </article>
+          
+          <article class="price-card complete"><span class="popular">Mais vendido</span><header><span>Coleção Completa</span><p>O acervo completo, em todos os formatos.</p></header><div class="price"><small>R$</small><strong>19</strong><sup>,90</sup></div><p class="once">Pagamento único · menos de R$ 0,10 por wallpaper</p><ul><li>Mais de 200 wallpapers em 4K, com versões originais e mais formatos</li><li>Compatível com Mac, Windows, iPhone e Android</li><li>Versões ultrawide 21:9, iPad e tela de bloqueio</li><li>Guia bônus: wallpaper novo todos os dias, no automático</li><li>Atualizações futuras com acesso antecipado</li><li>Garantia estendida de 30 dias</li></ul><a class="button button-primary" href="https://pay.cakto.com.br/ogycbpr_1087102" target="_blank" rel="noopener noreferrer" data-plan="complete">Quero a coleção completa</a></article>
         </div>
         <div class="trust-row"><span>◇ Pagamento seguro</span><span>↓ Download imediato</span><span>♢ Garantia de até 30 dias</span></div>
       </div>
@@ -321,25 +339,6 @@
   </main>
 
   <footer class="footer shell"><a class="brand" href="#top"><span>ATLAS</span><i></i></a><p>© 2026 ATLAS Visual Collection</p><nav><a href="#">Termos</a><a href="#">Privacidade</a><a href="mailto:suporte@example.com">Suporte</a></nav></footer>
-
-  <dialog class="upsell-dialog" aria-labelledby="upsell-title" aria-describedby="upsell-description">
-    <div class="upsell-card">
-      <button class="upsell-close" type="button" aria-label="Fechar oferta">×</button>
-      <p class="upsell-kicker">Antes de continuar</p>
-      <h2 id="upsell-title">Leve a <em>Coleção Completa</em> por só<br>R$ 5 a mais</h2>
-      <p id="upsell-description" class="upsell-description">Você está levando a Essencial por R$ 9,90. Por só R$ 5 a mais, leve o acervo completo, com o dobro de wallpapers e todos os bônus.</p>
-      <ul class="upsell-benefits">
-        <li>Mais de 200 wallpapers em 4K (o dobro da Essencial)</li>
-        <li>Cada pintura em versão original e Dourada</li>
-        <li>Versões ultrawide 21:9, iPad e tela de bloqueio</li>
-        <li>Guia bônus: wallpaper novo todo dia, no automático</li>
-        <li>Garantia estendida de 30 dias</li>
-      </ul>
-      <p class="upsell-price">De <s>R$ 19,90</s> por <strong>R$ 14,90</strong> <span>· você economiza R$ 5</span></p>
-      <a class="button button-primary upsell-accept" href="https://pay.cakto.com.br/3ak3kxk">Sim, quero a Coleção Completa por R$ 14,90</a>
-      <a class="upsell-decline" href="https://pay.cakto.com.br/pfrouu2">Não, seguir só com a Essencial (R$ 9,90)</a>
-    </div>
-  </dialog>
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Como recebo os wallpapers?","acceptedAnswer":{"@type":"Answer","text":"Após a confirmação do pagamento, você recebe por e-mail o link de acesso à coleção."}},{"@type":"Question","name":"É assinatura?","acceptedAnswer":{"@type":"Answer","text":"Não. O pagamento é único e o acesso é permanente."}},{"@type":"Question","name":"Funciona em monitor ultrawide?","acceptedAnswer":{"@type":"Answer","text":"A Coleção Completa inclui versões selecionadas em formato 21:9."}}]}</script>
   <script src="script.js"></script>
