@@ -2007,19 +2007,20 @@ em {
     margin-bottom: 12px;
   }
 
-  .hero h1 {
-    font-size: clamp(38px, 11.4vw, 48px);
-    line-height: .96;
-    margin-top: 0;
-  }
-
-  .hero h1 br {
-    display: block;
-  }
-
-  .hero h1 em {
-    display: inline;
-  }
+    .hero h1 {
+      font-size: clamp(36px, 10.5vw, 46px);
+      line-height: .96;
+      margin-top: 0;
+      letter-spacing: -0.04em;
+    }
+    
+    .hero h1 br {
+      display: block;
+    }
+    
+    .hero h1 em {
+      display: block;
+    }
 
   .lead {
     font-size: 14px;
