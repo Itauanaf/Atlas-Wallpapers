@@ -3528,3 +3528,360 @@ em {
   color: #fff;
   font-weight: 800;
 }
+
+
+/* =========================================================
+   PROVA SOCIAL / DEPOIMENTOS
+   ========================================================= */
+
+   .testimonials {
+    background: #08090b;
+    padding-bottom: clamp(100px, 11vw, 160px);
+  }
+  
+  .testimonials .section-head {
+    margin-bottom: 0;
+  }
+  
+  .testimonials .section-head.split {
+    grid-template-columns: 1.25fr .75fr;
+    align-items: center;
+  }
+  
+  .testimonials .section-head h2 {
+    max-width: 700px;
+    font-size: clamp(52px, 6vw, 88px);
+    margin-bottom: 0;
+  }
+  
+  .testimonials .section-head h2 em {
+    color: var(--paper);
+  }
+  
+  .testimonials .section-head > p:last-child {
+    max-width: 390px;
+    color: #8d99aa;
+    font-size: 15px;
+    line-height: 1.65;
+    padding-bottom: 0;
+  }
+  
+  .testimonial-track {
+    margin-top: 80px;
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  
+  .testimonial-track::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .testimonial-track article {
+    min-width: calc((100% - 28px) / 3);
+    padding: 11px;
+    background: #101419;
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 14px;
+  }
+  
+  .placeholder-setup {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background: #050607;
+    border-radius: 7px;
+    overflow: hidden;
+  }
+  
+  .placeholder-setup img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+  }
+  
+  .testimonial-track article > span {
+    margin: 22px 10px 13px;
+    color: #e4a84e;
+    font-size: 12px;
+    letter-spacing: .08em;
+  }
+  
+  .testimonial-track article > p {
+    margin: 0 10px 25px;
+    font-family: var(--serif);
+    font-size: 23px;
+    line-height: 1.15;
+    color: var(--paper);
+  }
+  
+  .testimonial-track footer {
+    border-top: 1px solid var(--line);
+    padding: 14px 10px 4px;
+    color: #9a9da2;
+    font-size: 10px;
+  }
+  
+  .testimonial-track footer i {
+    float: right;
+    color: #65686d;
+    font-size: 8px;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+  }
+
+  /* =========================================================
+   PROVA SOCIAL — RESPONSIVO MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .testimonials {
+    padding-bottom: 90px;
+  }
+
+  .testimonials .section-head.split {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .testimonials .section-head h2 {
+    font-size: clamp(46px, 8vw, 68px);
+    max-width: 700px;
+  }
+
+  .testimonials .section-head > p:last-child {
+    max-width: 560px;
+    font-size: 14px;
+  }
+
+  .testimonial-track {
+    margin-top: 48px;
+    gap: 14px;
+    padding-left: 0;
+    padding-right: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .testimonial-track article {
+    min-width: 72vw;
+    max-width: 72vw;
+    padding: 9px;
+    scroll-snap-align: start;
+    flex: 0 0 72vw;
+  }
+
+  .placeholder-setup {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 7px;
+  }
+
+  .testimonial-track article > span {
+    margin: 17px 9px 10px;
+    font-size: 10px;
+  }
+
+  .testimonial-track article > p {
+    margin: 0 9px 20px;
+    font-size: 20px;
+    line-height: 1.15;
+  }
+
+  .testimonial-track footer {
+    padding: 12px 9px 4px;
+    font-size: 9px;
+  }
+
+  .testimonial-track footer i {
+    font-size: 7px;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .testimonials {
+    padding-bottom: 80px;
+  }
+
+  /*
+    Título da seção
+  */
+
+  .testimonials .section-head {
+    width: 100%;
+  }
+
+  .testimonials .section-head.split {
+    display: block;
+  }
+
+  .testimonials .section-head h2 {
+    font-size: 44px;
+    line-height: .96;
+    margin-bottom: 22px;
+    max-width: 100%;
+  }
+
+  .testimonials .section-head > p:last-child {
+    max-width: 330px;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  /*
+    Área dos cards
+  */
+
+  .testimonial-track {
+    width: calc(100vw - 14px);
+    margin-left: 0;
+    margin-top: 38px;
+
+    gap: 12px;
+
+    padding-right: 14px;
+    padding-bottom: 8px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 0;
+
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  /*
+    Card ocupa aproximadamente 82% da tela.
+    Assim o próximo card aparece parcialmente,
+    indicando que existe mais conteúdo para arrastar.
+  */
+
+  .testimonial-track article {
+    width: 82vw;
+    min-width: 82vw;
+    max-width: 82vw;
+
+    flex: 0 0 82vw;
+
+    padding: 8px;
+
+    border-radius: 13px;
+
+    scroll-snap-align: start;
+
+    background: #101419;
+    border: 1px solid rgba(255, 255, 255, .14);
+
+    box-shadow:
+      0 16px 35px rgba(0, 0, 0, .25);
+  }
+
+  /*
+    Imagem da conversa
+  */
+
+  .placeholder-setup {
+    width: 100%;
+
+    /*
+      Mantém proporção vertical,
+      mas evita que o card fique exageradamente alto.
+    */
+    aspect-ratio: 3 / 3.75;
+
+    border-radius: 7px;
+
+    background: #050607;
+
+    overflow: hidden;
+  }
+
+  .placeholder-setup img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    border-radius: 7px;
+  }
+
+  /*
+    Texto abaixo da imagem
+  */
+
+  .testimonial-track article > span {
+    margin: 15px 8px 9px;
+
+    font-size: 9px;
+    line-height: 1.2;
+
+    letter-spacing: .1em;
+  }
+
+  .testimonial-track article > p {
+    margin: 0 8px 18px;
+
+    font-size: 19px;
+    line-height: 1.16;
+
+    max-width: 290px;
+  }
+
+  /*
+    Rodapé do card
+  */
+
+  .testimonial-track footer {
+    padding: 11px 8px 3px;
+
+    font-size: 8px;
+    line-height: 1.4;
+  }
+
+  .testimonial-track footer i {
+    font-size: 6.5px;
+    letter-spacing: .1em;
+  }
+}
+
+
+/* =========================================================
+   PROVA SOCIAL — CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .testimonials .section-head h2 {
+    font-size: 40px;
+  }
+
+  .testimonial-track {
+    gap: 10px;
+  }
+
+  .testimonial-track article {
+    width: 86vw;
+    min-width: 86vw;
+    max-width: 86vw;
+    flex-basis: 86vw;
+  }
+
+  .placeholder-setup {
+    aspect-ratio: 3 / 3.7;
+  }
+
+  .testimonial-track article > p {
+    font-size: 18px;
+  }
+}
